@@ -23,10 +23,10 @@ giniClient.search('test', {limit: 5}).then(function(results) {
 });
 
 // upload new document
-gini.documents.post({
+giniClient.documents.post({
     file: 'example.pdf'
 }).then(function(response) {
-    return gini.request.get(response.location);
+    return giniClient.request.get(response.location);
 }).then(function(uploadedDoc) {
     console.log('Uploaded document:', uploadedDoc);
 }).catch(function(err) {
@@ -34,7 +34,7 @@ gini.documents.post({
 });
 
 // usercenter request: create new user
-gini.users.post({
+giniClient.users.post({
     email: "test@example.org",
     password: "supersecret"
 }).then(function(response) {
@@ -44,7 +44,7 @@ gini.users.post({
 });
 
 // get one specific user
-gini.users.get('00000000-0000-0000-0000-000000000000').then(function(users) {
+giniClient.users.get('00000000-0000-0000-0000-000000000000').then(function(users) {
     console.log('User:', user);
 }).catch(function(err) {
     console.log('ERROR', err);
