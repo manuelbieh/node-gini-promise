@@ -49,3 +49,9 @@ giniClient.users.get('00000000-0000-0000-0000-000000000000').then(function(users
 }).catch(function(err) {
     console.log('ERROR', err);
 });
+
+// download all images in 750x900 for a single document
+gini.documents.downloadImages('00000000-0000-0000-0000-000000000000', {
+ 	sizes: ['750x900'],
+ 	filename: '{id}-{size}_{page}'
+});
